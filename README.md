@@ -1,5 +1,4 @@
-# move.it
-this is an application made for studying purposes while learning nextJs and ReactJs
+this is an app made for study purposes while training NextJs and ReactJs concepts
 
 
 # welcome to Move.it
