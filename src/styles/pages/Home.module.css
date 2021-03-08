@@ -1,0 +1,74 @@
+.container{
+    height: 100vh;
+    max-width: 1240px;
+    margin: 0 auto;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.container .mainSection {
+    flex: 1;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6.25rem;
+    align-content: center;
+    margin-top: 8rem;
+}
+
+.container .mainSection .countdownArticle,
+.container .mainSection .challengeArticle{
+    min-width: 350px;
+}
+
+.pageContent{
+    margin-left: 6rem;
+}
+
+.header h1 {
+    color: var(--blue);
+    text-align: center;
+    margin-bottom: 5rem;
+}
+
+.header h1 span {
+    display: inline-block;
+    background: var(--blue);
+    color: var(--white);
+    padding: 0.5rem 1rem;
+    transform: skewX(-15deg);
+}
+
+.page{
+    height: 100vh;
+    display: flex;
+}
+
+.pageContent{
+    position: relative;
+    padding: 2.5rem 2rem;
+}
+
+.sideNav{
+    position: fixed;
+    z-index: 2;
+    margin-right: 1.5rem;
+    top:0;
+    left:0;
+    height: 100%;
+}
+
+@media(max-width: 800px){
+    .container .mainSection {
+        flex: 1;
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        align-content: center;
+        margin-top: 5rem;
+    }  
+
+    .divR{
+        margin-bottom: 2rem;
+    }
+}
