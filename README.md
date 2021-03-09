@@ -13,22 +13,16 @@
 
 **run the following command to clone this repository:**
 
-    `git clone https://github.com/Kleuvys/move.it.git`
-
+    git clone https://github.com/Kleuvys/move.it.git
 
 **then go to project directory in your terminal and run the following to install all dependencies:**
 
-    `yarn install`
+    yarn instal
+    yarn dev
 
 **or if you use npm**
 
-    `npm install`
-
-**finally run:**
-
-    `yarn dev`
-or 
-    
-    `npm run dev`
+    npm install
+    npm run dev
 
 #### _this is an app made for study purposes while training NextJs and ReactJs concepts_
