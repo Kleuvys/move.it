@@ -1,6 +1,7 @@
 .container{
     height: 100vh;
     max-width: 1240px;
+    min-width: 284px;
 
     display: flex;
     flex-direction: column;
@@ -54,21 +55,11 @@
     height: 100%;
 }
 
-/* .container .mainSection .countdownArticle,
-.container .mainSection .countdownArticle button,
-.container .mainSection .challengeArticle{
-    min-width: 350px;
-} */
+
 
 @media(max-width: 870px){
-
     .container .mainSection {
-        flex: 0 0 350px;
-        display: grid;
-        grid-template-columns: 1fr 1fr;
         gap: 3rem;
-        justify-content: center;
-        align-content: center;
         margin-top: 5rem;
     }
 
@@ -76,19 +67,27 @@
 
 @media(max-width: 800px){
     .container{
-        height: 1150px;        
-        display: flex;
-        flex-direction: column;
-        align-items: center;
+        height: 1150px;               
     }
 
     .container .mainSection {
         width: 400px;
-        flex: 0;
-        display: grid;
         grid-template-columns: 1fr;
-        gap: 3rem;
-        
     }
 
+}
+
+@media(max-width: 500px){
+    .container .mainSection {        
+        gap: 2rem;
+    }
+    .pageContent{
+        margin-left: 12rem;
+    }
+}
+
+@media(max-width: 400px){
+    .pageContent{
+        margin-left: 18rem;
+    }
 }
