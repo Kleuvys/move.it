@@ -15,7 +15,7 @@
 
     git clone https://github.com/Kleuvys/move.it.git
 
-**then go to the project`s directory in your terminal and run the following to install all dependencies and start the development environment:**
+**then go to the project's directory in your terminal and run the following to install all dependencies and start the development environment:**
 
     yarn instal
     yarn dev

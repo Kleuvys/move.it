@@ -22,12 +22,12 @@ interface HomeProps {
   challengesCompleted: number;
 }
 
-export default function Home(props: HomeProps) {
+export default function Home({ level, currentExperience, challengesCompleted }: HomeProps) {
   return (
     <ChallengesProvider
-      level={props.level}
-      currentExperience={props.currentExperience}
-      challengesCompleted={props.challengesCompleted}
+      level={level}
+      currentExperience={currentExperience}
+      challengesCompleted={challengesCompleted}
     >
       <div className={styles.container}>
         <Head>
