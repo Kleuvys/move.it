@@ -18,6 +18,10 @@ export function Countdown() {
     const [minuteLeft, minuteRight] = String(minutes).padStart(2, '0').split('');
     const [secondLeft, secondRight] = String(seconds).padStart(2, '0').split('');
 
+    let progress = 100 - Math.round((((minutes * 60 + seconds) / 5) * 100));
+
+    console.log("progress " + progress + "%");
+
     return (
         <div>
             <div className={styles.countdownContainer}>
@@ -35,23 +39,26 @@ export function Countdown() {
             {
                 hasFinished ? (
                     <button disabled className={`${styles.countdownButton}`} >
-                        Ciclo encerrado
+                        Ciclo encerrado <img src="./icons/check-circle.svg" />
                     </button>
                 ) : (
-                        <>
-                            {
-                                !isActive ? (
-                                    <button onClick={startCountdown} type="button" className={`${styles.countdownButton}`} >
-                                        Iniciar um ciclo
-                                    </button>
-                                ) : (
-                                        <button onClick={resetCountdown} type="button" className={`${styles.countdownButton} ${styles.countdownButtonAtive}`}>
-                                            Abandonar ciclo
-                                        </button>
-                                    )
-                            }
-                        </>
-                    )
+                    <>
+                        {
+                            !isActive ? (
+                                <button onClick={startCountdown} type="button" className={`${styles.countdownButton}`} >
+                                    Iniciar um ciclo <img src="./icons/arrow-right.svg" />
+                                </button>
+                            ) : (
+                                <button onClick={resetCountdown} type="button" className={`${styles.countdownButton} ${styles.countdownButtonActive}`}>
+                                    <p>Abandonar ciclo <img src="./icons/close-black.svg" alt="Abandonar Ciclo" /></p>
+                                    <div className={`${styles.countProgressBar}`}>
+                                        <span style={{ width: `${progress}%` }}></span>
+                                    </div>
+                                </button>
+                            )
+                        }
+                    </>
+                )
             }
 
 

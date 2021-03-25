@@ -6,6 +6,7 @@ type CountdowContextData = {
     seconds: number;
     hasFinished: boolean;
     isActive: boolean;
+    time: number;
     startCountdown: () => void;
     resetCountdown: () => void;
 }
@@ -21,7 +22,7 @@ let countdownTimeout: NodeJS.Timeout;
 export function CountdownProvider({ children }: CountdowContextProviderProps) {
     const { startNewChallenge } = useContext(ChallengesContext);
 
-    const [time, setTime] = useState(0.05 * 60);
+    const [time, setTime] = useState(5);
     const [isActive, setIsActive] = useState(false);
     const [hasFinished, setHasFinished] = useState(false);
 
@@ -35,7 +36,7 @@ export function CountdownProvider({ children }: CountdowContextProviderProps) {
     function resetCountdown() {
         clearTimeout(countdownTimeout);
         setIsActive(false);
-        setTime(0.05 * 60);
+        setTime(5);
         setHasFinished(false);
     }
 
@@ -59,7 +60,8 @@ export function CountdownProvider({ children }: CountdowContextProviderProps) {
             hasFinished,
             isActive,
             startCountdown,
-            resetCountdown
+            resetCountdown,
+            time
         }}>
             { children}
         </CountdownContext.Provider>

@@ -57,19 +57,51 @@
     background: var(--blue-dark);
 }
 
+.countdownButton:not(:disabled) img{
+    margin-left: 10px;
+}
+
 .countdownButton:disabled{
     background: var(--white);
     color: var(--black);
     cursor: not-allowed;
 }
 
-.countdownButtonAtive{
+.countdownButton:disabled img{
+    margin-left: 10px;
+}
+
+.countdownButtonActive{
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
     background: var(--white);
     color: var(--title);
 }
 
-
-.countdownButton:not(:disabled):hover{
-    background: var(--red);
+.countdownButtonActive:hover{
+    background: var(--red) !important;
     color: var(--white);
 }
+
+.countdownButtonActive p img{
+    margin-left: 10px;
+}
+
+.countProgressBar{
+    position: relative;
+    width: 100%;
+    height: 5px;
+    background: var(--gray-line);
+    margin-top: 1.5rem;
+}
+
+.countProgressBar span{
+    position: absolute;
+    top:0;
+    left:0;
+    width: 50%;
+    height: 100%;
+    background: var(--green);
+}
+

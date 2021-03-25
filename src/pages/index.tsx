@@ -72,8 +72,6 @@ export default function Home({ level, currentExperience, challengesCompleted }: 
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
   const { level, currentExperience, challengesCompleted } = ctx.req.cookies;
 
-  console.log('curExp from cookie: ' + Number(currentExperience));
-
   return {
     props: {
       level: Number(level ?? 1),
