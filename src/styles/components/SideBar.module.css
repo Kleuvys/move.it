@@ -26,12 +26,43 @@
     border: 7px solid transparent;
 }
 
+.navIcons li a {
+    outline: 0;
+    opacity: 1;
+}
+
+.navIcons li a:focus, .navIcons li a:hover{
+    opacity: 0.5;
+}
+
 .navIcons li.active{
     border-left: 7px solid var(--blue);
 }
 
 .container .navIcons li + li{
     margin-top: 3rem;
+}
+
+.logout{
+    background: var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 0;
+    outline: 0;
+    opacity: 1;
+    font-size: 1.2rem;
+    color: var(--text);
+}
+
+.logout:focus, .logout:hover{
+    opacity: 0.7;
+}
+
+.logout > img{
+    width: 20px;
+    height: 20px;
+    margin-right: 5px;
 }
 
 

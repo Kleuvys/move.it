@@ -15,14 +15,29 @@ import { ChallengesProvider } from '../contexts/ChallengesContext';
 
 import styles from '../styles/pages/Home.module.css';
 import { SideBar } from '../components/SideBar';
+import { useEffect } from 'react';
+import { useSession } from 'next-auth/client';
 
 interface HomeProps {
   level: number;
   currentExperience: number;
   challengesCompleted: number;
+  username: string;
 }
 
-export default function Home({ level, currentExperience, challengesCompleted }: HomeProps) {
+export default function Home({ level, currentExperience, challengesCompleted, username }: HomeProps) {
+  const [session, loading] = useSession();
+
+  useEffect(() => {
+    console.log(session);
+  }, [session]);
+
+  if (loading) {
+    return <h1> Carregando ...</h1>
+  }
+
+  const { user } = session;
+
   return (
     <ChallengesProvider
       level={level}
@@ -49,7 +64,7 @@ export default function Home({ level, currentExperience, challengesCompleted }: 
               <main>
                 <section className={styles.mainSection}>
                   <article className={styles.countdownArticle}>
-                    <Profile />
+                    <Profile userData={{ userName: (username || user.name), image: user.image, email: user.email }} />
                     <CompletedChallenges />
                     <Countdown />
                   </article>
@@ -70,10 +85,11 @@ export default function Home({ level, currentExperience, challengesCompleted }: 
 }
 
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
-  const { level, currentExperience, challengesCompleted } = ctx.req.cookies;
+  const { level, currentExperience, challengesCompleted, username } = ctx.req.cookies;
 
   return {
     props: {
+      username,
       level: Number(level ?? 1),
       currentExperience: Number(currentExperience ?? 0),
       challengesCompleted: Number(challengesCompleted ?? 0)
