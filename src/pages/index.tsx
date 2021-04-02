@@ -64,7 +64,7 @@ export default function Home({ level, currentExperience, challengesCompleted, us
               <main>
                 <section className={styles.mainSection}>
                   <article className={styles.countdownArticle}>
-                    <Profile userData={{ userName: (username || user.name), image: user.image, email: user.email }} />
+                    <Profile userData={{ userName: (username || user.name), image: user.image }} />
                     <CompletedChallenges />
                     <Countdown />
                   </article>

@@ -13,12 +13,15 @@ interface LeaderProps {
     level: number;
     currentExperience: number;
     challengesCompleted: number;
+    username: string;
 }
 
 export default function Leaderboard({
     level,
     currentExperience,
-    challengesCompleted }: LeaderProps) {
+    challengesCompleted,
+}: LeaderProps) {
+
     return (
         <ChallengesProvider
             level={level}
@@ -50,10 +53,11 @@ export default function Leaderboard({
 }
 
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
-    const { level, currentExperience, challengesCompleted } = ctx.req.cookies;
+    const { level, currentExperience, challengesCompleted, username } = ctx.req.cookies;
 
     return {
         props: {
+            username,
             level: Number(level ?? 1),
             currentExperience: Number(currentExperience ?? 0),
             challengesCompleted: Number(challengesCompleted ?? 0)

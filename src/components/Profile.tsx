@@ -4,7 +4,6 @@ import styles from '../styles/components/Profile.module.css';
 
 interface UserProps {
     userName: string,
-    email: string,
     image: string
 }
 

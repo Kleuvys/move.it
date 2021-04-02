@@ -1,12 +1,20 @@
 import React, { useContext } from 'react'
-import { ChallengesContext } from '../contexts/ChallengesContext'
 
 import styles from '../styles/components/RankingItem.module.css'
 import { Profile } from './Profile';
 
-export default function RankingItem() {
-    const { challengesCompleted, currentExperience } = useContext(ChallengesContext);
+interface UserProps {
+    userName: string,
+    image: string;
+    challengesCompleted: number;
+    currentExperience: number;
+}
 
+interface RankingItemProps {
+    user: UserProps
+}
+
+export default function RankingItem({ user }: RankingItemProps) {
     return (
         <article className={styles.container}>
             <div className={styles.left}>
@@ -15,13 +23,13 @@ export default function RankingItem() {
 
             <div className={styles.right}>
                 <div className={styles.profile}>
-                    <Profile />
+                    <Profile userData={{ userName: user.userName, image: user.image }} />
                 </div>
                 <div className={styles.challengesCompleted}>
-                    <span className={styles.blue}> 12 </span> completados
+                    <span className={styles.blue}> {user.challengesCompleted} </span> completados
                 </div>
                 <div className={styles.experience}>
-                    <span className={styles.blue}> 1135124 </span> xp
+                    <span className={styles.blue}> {user.currentExperience} </span> xp
                 </div>
             </div>
         </article>
